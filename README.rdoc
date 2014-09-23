@@ -1,14 +1,14 @@
 == README
 
-This is an AngularJS + Rails application used Rails version 4.x, and Ruby version 2.x.
+AngularJS + Rails application using Rails version 4.x, and Ruby version 2.x.
 
 The following are the AngularJS features which I have used in this application:
 
-* Angular JS controllers, Services and Route Provides
+* Angular JS Directives, Controllers, Services and Route Providers
 
-* CRUD operations using angular controller and route providers
+* CRUD operations using angularjs services 
 
-* All views are integrated with bootstrap
+* All views are integrated with bootstrap 3.x
 
 * Integrated pagination in Angular+Rails using will_paginate
 
