@@ -1,0 +1,23 @@
+<div class="row clearfix ng-cloak" ng-init="init()">
+    <div class="col-md-12 column">
+        <p>
+          <a class="btn btn-primary btn-large" href="/">Home</a>
+          <span> {{today | date:'medium'}} </span>
+        </p>
+      <div class="jumbotron">
+        
+        <p ng-model="title">
+          {{title | uppercase }}
+        </p>
+
+        <form name="form" action="/">
+          <label name="email">Your email</label>
+          <input type="email" name="email" ng-model="email" placeholder="Email Address" required/>
+          <input type="submit" value="Submit">
+        </form>
+
+
+      </div>
+
+    </div>
+</div>

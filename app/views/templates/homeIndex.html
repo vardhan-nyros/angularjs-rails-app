@@ -1,0 +1,108 @@
+
+<div class="ng-cloak" ng-init="init()">
+	<div id="task-list-view" class="col-lg-10">
+
+		<div class="row col-md-8">
+
+			<form id="new_list" ng-submit="createList(listTitle)" class="ng-pristine">
+				<div class="input-group">
+					<input autofocus="autofocus" class="form-control input-lg ng-pristine ng-valid" data-non-blank="" id="listTitle" maxlength="255" ng-model="listTitle" placeholder="List name" type="text" required="">
+						<span class="input-group-btn"><button class="btn btn-primary btn-lg" type="submit">create list</button></span>
+				</div>
+			</form>
+		</div>
+		<br/><br/><br/>
+	    <div class="alert alert-success" role="alert"> <h4> Update lists by clicking on names below </h4></div>
+
+
+		<ul class="list-group" ng-show="lists == 0">
+	      <li class="list-group-item">
+			 You have not created any list now
+		  </li>
+		</ul>
+
+
+
+		<div class="panel panel-warning">
+		  <div class="panel-heading">
+		   	<h3 class="ib">Lists</h3>
+		   	<h4 class="pull-right ib">
+		   		<!-- <i class="glyphicon glyphicon-search"></i> -->
+		   		<input ng-model="searchText" class="form-control" placeholder="Search Lists"> 
+		   	</h4>
+		  </div>
+		  <div class="panel-body">
+		    <ul class="list-group">
+		    	<!-- <li dir-paginate="item in items | filter:q | itemsPerPage: pageSize" current-page="currentPage">{{ item.title }}</li> -->
+		    	<li dir-paginate="list in lists | filter:searchText | itemsPerPage: pageSize" class="list-group-item list"> 
+		    		<ul class="listtitle nav" data-toggle="tooltip" data-placement="left" title="click to update">
+				    	<li>
+					    	<editablespan
+										  model="list.title"
+										  on-ready="listEdited(list)"
+										  span-class="info"
+										  input-class="form-control input-lg"
+										  >
+							</editablespan>
+						</li>
+
+						<!-- <li style="display:none" class="taskpop"  rel="popover" showonhoverparent>
+							 <a href="#" popover> <i class="glyphicon glyphicon-plus"> </i> Add Task </a>
+						</li> -->
+					</ul>
+
+					<div class="listbutton pull-right">
+						<a href="#" class="btn btn-success btn-xs taskpopover" popover> <i class="glyphicon glyphicon-plus"> </i> Add Task </a>
+						<a class="btn btn-info btn-xs" ng-click = "showlisttasks(list,$index)"><i class="glyphicon glyphicon-th-list"></i> show tasks</a>
+						<a class="btn btn-danger btn-xs" ng-click = "deleteList(list,$index)"><i class="glyphicon glyphicon-trash"> </i> Delete</a>
+						
+					</div>
+
+				</li>
+
+		
+		    </ul>
+		    <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
+		  </div>
+		</div>
+	</div>
+
+
+
+
+	<div id="tasks-view" class="col-lg-5 hide" style="margin-top:79px">
+		<div class="panel panel-warning">
+			<div class="panel-heading">
+			   	<h3 class="ib">Tasks for {{list.title}}</h3>
+			   	<h4 class="pull-right ib">
+			   		<!-- <i class="glyphicon glyphicon-search"></i> -->
+			   		<input ng-model="searchTask" class="form-control" placeholder="Search Tasks"> 
+			   	</h4>
+		  	</div>
+		  	<div class="panel-body">
+		  		<div ng-show="tasks == 0"> There are no more tasks created for this {{list.tile}} List</div>
+		        <ul class="list-group">
+		            <li ng-repeat="task in tasks | filter: searchTask" class="list-group-item tasktitle">
+		                <editablespan
+												  model="task.title"
+												  on-ready="taskEdited(list,task)"
+												  span-class="info"
+												  input-class=""
+												  >
+						</editablespan>
+						<div class="pull-right taskbutton">
+							<button class="btn btn-danger btn-xs" ng-click = "deleteTask(list,task,$index)">Delete</button>
+						</div>
+		            </li>
+		        </ul>
+		    </div>
+	    </div>
+    </div>
+
+
+
+</div>
+
+
+
+

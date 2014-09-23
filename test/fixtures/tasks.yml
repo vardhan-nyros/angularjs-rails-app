@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  start: 2014-06-27
+  end: 2014-06-27
+  assignee_id: 1
+  list_id: 1
+
+two:
+  title: MyString
+  start: 2014-06-27
+  end: 2014-06-27
+  assignee_id: 1
+  list_id: 1

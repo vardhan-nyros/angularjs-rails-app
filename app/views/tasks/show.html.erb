@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @task.title %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @task.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @task.end %>
+</p>
+
+<p>
+  <strong>Assignee:</strong>
+  <%= @task.assignee_id %>
+</p>
+
+<p>
+  <strong>List:</strong>
+  <%= @task.list_id %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>
